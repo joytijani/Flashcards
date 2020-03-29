@@ -6,7 +6,8 @@
 app that allows a user to choose between multiple choice options to answer the question provided
 
 ### App Walk-though
-<img src="file:///Users/joycetijani/Downloads/LAB1.gif" width=200><br>
+<img src="/Users/joycetijani/Downloads/LAB1.gif
+" width=200><br>
 
 ## Required
 - [x] Create New Project in Xcode
