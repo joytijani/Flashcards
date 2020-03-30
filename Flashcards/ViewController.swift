@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var backLabel: UILabel!
     @IBOutlet weak var frontLabel: UILabel!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -52,6 +53,15 @@ class ViewController: UIViewController {
         }
     }
     
+    func updateFlashcard(question: String, answer: String, extraAnswerOne:String?, extraAnswerTwo: String?){
+        frontLabel.text = question
+        backLabel.text = answer
+        
+        btnOptionOne.setTitle(extraAnswerOne, for: .normal)
+        btnOptionTwo.setTitle(answer, for: .normal)
+        btnOptionThree.setTitle(extraAnswerTwo, for: .normal)
+    }
+    
     @IBAction func didTapOptionOne(_ sender: Any) {
         frontLabel.isHidden = false
     }
@@ -62,6 +72,23 @@ class ViewController: UIViewController {
     
     @IBAction func didTapOptionThree(_ sender: Any) {
         frontLabel.isHidden = false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //destination of segue is the Navigation Control
+        let navigationController = segue.destination as! UINavigationController
+        
+        //navigation controller only contains a creation view controller
+        let creationController = navigationController.topViewController as! CreationViewController
+        
+        //set flashcardsController property to self
+        creationController.flashcardsController = self
+        
+        //pass existing question and answer
+        if(segue.identifier=="EditSegue"){
+        creationController.initialQuestion = frontLabel.text
+        creationController.initialAnswer = backLabel.text
+        }
     }
     
 }

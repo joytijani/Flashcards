@@ -27,13 +27,21 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What is a class?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdw-C6-wsP">
-                                        <rect key="frame" x="3" y="0.0" width="331" height="146"/>
+                                        <rect key="frame" x="3" y="0.0" width="331" height="164"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.61060283240000002" green="0.4600939403" blue="0.65898235100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fxc-h1-6X3">
+                                        <rect key="frame" x="286" y="122" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="✏️"/>
+                                        <connections>
+                                            <segue destination="wPv-LA-gcf" kind="show" identifier="EditSegue" id="Y9S-rh-hDk"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <gestureRecognizers/>
@@ -77,6 +85,17 @@
                                     <outletCollection property="gestureRecognizers" destination="Dyq-Mq-diS" appends="YES" id="DmY-IB-e3H"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2g-ZA-9UZ">
+                                <rect key="frame" x="183" y="796" width="47" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" red="0.61060283240000002" green="0.4600939403" blue="0.65898235100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wPv-LA-gcf" kind="show" id="YxR-7G-Kth"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
@@ -115,5 +134,86 @@
             </objects>
             <point key="canvasLocation" x="113.04347826086958" y="99.776785714285708"/>
         </scene>
+        <!--Creation View Controller-->
+        <scene sceneID="LuZ-f3-yN2">
+            <objects>
+                <viewController id="IFP-fq-QJN" customClass="CreationViewController" customModule="Flashcards" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZOr-EF-8kf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Question" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Khv-L5-jf6">
+                                <rect key="frame" x="106" y="183" width="202" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Extra Answer #1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1kF-OT-xF0">
+                                <rect key="frame" x="106" y="354" width="202" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Extra Answer #2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FLx-Nn-REa">
+                                <rect key="frame" x="106" y="442" width="202" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Answer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T1R-lm-YzK">
+                                <rect key="frame" x="106" y="271" width="202" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="QXc-BW-M8E"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dJz-jp-nuf">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="D1I-ZN-1u8">
+                            <connections>
+                                <action selector="didTapOnCancel:" destination="IFP-fq-QJN" id="a6s-t9-dC0"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="ras-o1-xsf">
+                            <connections>
+                                <action selector="didTapOnDone:" destination="IFP-fq-QJN" id="GNh-mb-qHf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="answerTextField" destination="T1R-lm-YzK" id="Red-kJ-XRl"/>
+                        <outlet property="extraAnswerOne" destination="1kF-OT-xF0" id="bhM-mm-zhf"/>
+                        <outlet property="extraAnswerTwo" destination="FLx-Nn-REa" id="p0w-QN-Q8a"/>
+                        <outlet property="questionTextField" destination="Khv-L5-jf6" id="ggD-S6-Kk8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RoF-C2-Sdm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1776.8115942028987" y="99.776785714285708"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TRQ-CG-BKO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wPv-LA-gcf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="5Qg-pb-ZLV"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qs4-lZ-tqq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IFP-fq-QJN" kind="relationship" relationship="rootViewController" id="gPe-ya-zsd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="900-Hq-enl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="866.66666666666674" y="99.776785714285708"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Y9S-rh-hDk"/>
+    </inferredMetricsTieBreakers>
 </document>

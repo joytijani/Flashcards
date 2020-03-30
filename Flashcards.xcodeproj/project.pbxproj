@@ -13,6 +13,7 @@
 		041F984824303C7E008ACC42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041F984624303C7E008ACC42 /* Main.storyboard */; };
 		041F984A24303C81008ACC42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041F984924303C81008ACC42 /* Assets.xcassets */; };
 		041F984D24303C81008ACC42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041F984B24303C81008ACC42 /* LaunchScreen.storyboard */; };
+		041F985524311FC2008ACC42 /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F985424311FC2008ACC42 /* CreationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		041F984924303C81008ACC42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		041F984C24303C81008ACC42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		041F984E24303C81008ACC42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		041F985424311FC2008ACC42 /* CreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				041F984224303C7E008ACC42 /* SceneDelegate.swift */,
 				041F984424303C7E008ACC42 /* ViewController.swift */,
 				041F984624303C7E008ACC42 /* Main.storyboard */,
+				041F985424311FC2008ACC42 /* CreationViewController.swift */,
 				041F984924303C81008ACC42 /* Assets.xcassets */,
 				041F984B24303C81008ACC42 /* LaunchScreen.storyboard */,
 				041F984E24303C81008ACC42 /* Info.plist */,
@@ -141,6 +144,7 @@
 				041F984524303C7E008ACC42 /* ViewController.swift in Sources */,
 				041F984124303C7E008ACC42 /* AppDelegate.swift in Sources */,
 				041F984324303C7E008ACC42 /* SceneDelegate.swift in Sources */,
+				041F985524311FC2008ACC42 /* CreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
