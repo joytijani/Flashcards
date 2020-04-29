@@ -42,6 +42,14 @@
                                             <segue destination="wPv-LA-gcf" kind="show" identifier="EditSegue" id="Y9S-rh-hDk"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCO-bd-5iF">
+                                        <rect key="frame" x="16" y="8" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="❌ "/>
+                                        <connections>
+                                            <action selector="didTapOnDelete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tf0-CF-xhr"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <gestureRecognizers/>
@@ -96,6 +104,24 @@
                                     <segue destination="wPv-LA-gcf" kind="show" id="YxR-7G-Kth"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ot5-Py-o7Q">
+                                <rect key="frame" x="39" y="807" width="70" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Prev"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="081-oj-L5U" appends="YES" id="9Ap-L6-PeW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rv-Gx-P5B">
+                                <rect key="frame" x="334" y="814" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="j4V-Cy-oKR" appends="YES" id="CeQ-w5-TJL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
@@ -108,6 +134,8 @@
                         <outlet property="btnOptionTwo" destination="39y-0q-rQW" id="yXj-jf-RTQ"/>
                         <outlet property="card" destination="8wA-HZ-vtj" id="alO-jU-mEa"/>
                         <outlet property="frontLabel" destination="fdw-C6-wsP" id="zvZ-S5-YJu"/>
+                        <outlet property="nextButton" destination="3rv-Gx-P5B" id="HFd-Ip-8EK"/>
+                        <outlet property="prevButton" destination="ot5-Py-o7Q" id="gd9-hd-Wf3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -129,6 +157,16 @@
                 <tapGestureRecognizer id="YhC-Fm-w8s">
                     <connections>
                         <action selector="didTapOptionThree:" destination="BYZ-38-t0r" id="rCW-g9-zIh"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="j4V-Cy-oKR">
+                    <connections>
+                        <action selector="didTapOnNext:" destination="BYZ-38-t0r" id="98u-DZ-AIj"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="081-oj-L5U">
+                    <connections>
+                        <action selector="didTapOnPrev:" destination="BYZ-38-t0r" id="aMV-k7-Nla"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

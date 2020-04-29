@@ -8,16 +8,27 @@
 
 import UIKit
 
+struct Flashcard {
+    var question: String
+    var answer: String
+    var extraAnswerOne: String
+    var extraAnswerTwo: String
+}
 class ViewController: UIViewController {
 
     @IBOutlet weak var btnOptionOne: UIButton!
     @IBOutlet weak var btnOptionTwo: UIButton!
     @IBOutlet weak var btnOptionThree: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var prevButton: UIButton!
     
     @IBOutlet weak var card: UIView!
     @IBOutlet weak var backLabel: UILabel!
     @IBOutlet weak var frontLabel: UILabel!
-    
+    //Array to hold our flashcards
+    var flashcards = [Flashcard]()
+    //current flashcard index
+    var currentIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +54,62 @@ class ViewController: UIViewController {
         btnOptionThree.layer.borderColor = #colorLiteral(red: 0.6106028324, green: 0.4600939403, blue: 0.658982351, alpha: 1)
         frontLabel.clipsToBounds = true
         backLabel.clipsToBounds = true
+        
+        readSavedFlashcards()
+        
+        if flashcards.count == 0 {
+            updateFlashcard(question: "What's the capital of Brazil?", answer: "Brasilia", extraAnswerOne: "Silver Spring", extraAnswerTwo: "Los Angeles", isExisting: false)
+        } else {
+            updateLabels()
+            updateNextPrevButtons()
+        }
+        
+        // update current index
+        currentIndex = flashcards.count-1
     }
     
+    @IBAction func didTapOnPrev(_ sender: Any) {
+        //decrease current index
+        currentIndex = currentIndex - 1
+        
+        //update labels
+        updateLabels()
+        
+        //update buttons
+        updateNextPrevButtons()
+    }
+    
+    @IBAction func didTapOnNext(_ sender: Any) {
+        //increase current index
+        currentIndex = currentIndex + 1
+        
+        //Update labels
+        updateLabels()
+        
+        //Update buttons
+        updateNextPrevButtons()
+    }
+    
+    @IBAction func didTapOnDelete(_ sender: Any) {
+        //show confirmation
+        let alert = UIAlertController(title:"Delete flashcard", message:"Are you sure you want to delete it?", preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { action in
+            self.deleteCurrentFlashcard()
+        }
+        alert.addAction(deleteAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(cancelAction)
+        present(alert,animated: true)
+    }
+    func deleteCurrentFlashcard() {
+        //Delete current
+        flashcards.remove(at: currentIndex)
+        
+        //Special card: Check if your last card was deleted
+        if currentIndex > flashcards.count - 1 {
+            currentIndex = flashcards.count - 1
+        }
+    }
     @IBAction func didTapOnFlashcard(_ sender: Any) {
         if(frontLabel.isHidden == false){
             frontLabel.isHidden = true
@@ -53,13 +118,77 @@ class ViewController: UIViewController {
         }
     }
     
-    func updateFlashcard(question: String, answer: String, extraAnswerOne:String?, extraAnswerTwo: String?){
-        frontLabel.text = question
-        backLabel.text = answer
+    func updateFlashcard(question: String, answer: String,extraAnswerOne: String?,extraAnswerTwo: String?, isExisting: Bool){
+        let flashcard = Flashcard(question: question, answer: answer, extraAnswerOne: extraAnswerOne!,extraAnswerTwo: extraAnswerTwo!)
+        
+        if isExisting {
+            //Replace existing flashcard
+            flashcards[currentIndex] = flashcard
+        } else {
+        //Adding flashcard in the flashcards array
+        flashcards.append(flashcard)
+        
+        //update current index
+        currentIndex = flashcards.count - 1
+        }
+        print("Added new flashcard")
+        print("we have \(flashcards.count) flashcards")
         
         btnOptionOne.setTitle(extraAnswerOne, for: .normal)
         btnOptionTwo.setTitle(answer, for: .normal)
         btnOptionThree.setTitle(extraAnswerTwo, for: .normal)
+        
+        //update buttons
+        updateNextPrevButtons()
+        
+        //update labels
+        updateLabels()
+    }
+    
+    func updateNextPrevButtons() {
+        //Disable next button if at the end
+        if (currentIndex == flashcards.count - 1){
+            nextButton.isEnabled = false
+        } else {
+            nextButton.isEnabled = true
+        }
+        
+        //Disable prev button if at the beginning
+        if(currentIndex == 0){
+            prevButton.isEnabled = false
+        } else{
+            prevButton.isEnabled = true
+        }
+    }
+    
+    func updateLabels(){
+        //Get current flashcard
+        let currentFlashcard = flashcards[currentIndex]
+        
+        //Update labels
+        frontLabel.text = currentFlashcard.question
+        backLabel.text = currentFlashcard.answer
+    }
+    
+    func saveAllFlashcardsToDisk() {
+        //From flashcard array to dictionary array
+        let dictionaryArray = flashcards.map { (card) -> [String: String] in
+            return ["question":card.question,"answer":card.answer,"extraAnswerOne":card.extraAnswerOne,"extraAnswerTwo":card.extraAnswerTwo]
+        }
+        //Save array on disk using UserDefaults
+        UserDefaults.standard.set(dictionaryArray, forKey: "flashcards")
+        
+        //Log it
+        print("Flashcards saved to UserDefaults")
+    }
+    
+    func readSavedFlashcards() {
+        if let dictionaryArray = UserDefaults.standard.array(forKey: "flashcards") as? [[String: String]] {
+            let savedCards = dictionaryArray.map { dictionary -> Flashcard in
+                return Flashcard(question: dictionary["question"]!, answer: dictionary["answer"]!,extraAnswerOne: dictionary["extraAnswerOne"]!,extraAnswerTwo: dictionary["extraAnswerTwo"]!)
+            }
+            flashcards.append(contentsOf: savedCards)
+        }
     }
     
     @IBAction func didTapOptionOne(_ sender: Any) {
