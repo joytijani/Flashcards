@@ -1,5 +1,23 @@
 ## FlashCards
 
+## Lab 3
+
+### App Description
+Gave the app new functionality to be able to save multiple created cards that you user created and be able to revisit the app to review the cards. They also have the ability to delete a flashcard if they need to
+
+### App Walk-though
+<img src="http://g.recordit.co/4GjXMDi0Hk.gif" width=200><br>
+
+
+## Required
+- [X] User can browse through multiple flashcards
+- [X] User can re-open the app and see previously created flashcards
+- [X] Push code to GitHub
+## Optional
+- [X] User can delete a flashcard
+- [X] User can edit existing flashcard
+- [X] User can store multiple choice questions
+
 ## Lab 2
 
 ### App Description
