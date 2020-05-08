@@ -1,4 +1,23 @@
 ## FlashCards
+## Lab 4
+
+### App Description
+Gave the app increased functionality and more responsive and enjoyable for the user. Added elements such as an app icon, splash screen, and animations of screens and elements
+
+### App Walk-though
+<img src="http://g.recordit.co/1ErFQUGSxL.gif" width=200><br>
+
+## Required
+- [X] User should see the app icon 
+- [X] User should see a splash screen
+- [X] User should see an flip animation when revealing the answer
+- [X] User should see a slide animation when going to the next flashcard
+- [X] User should see a slide animation when going to the previous flashcard
+- [X] Push code to GitHub
+## Optional
+- [X] User should see a nicer flashcard with rounded corners, shadows, and animating when showing the first time
+- [X] User should see all views properly layout when using the app on a phone of different sizes
+- [X] Correct answer in multiple choice should be random
 
 ## Lab 3
 
