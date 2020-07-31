@@ -4,7 +4,7 @@
 ### App Description
 Gave the app increased functionality and more responsive and enjoyable for the user. Added elements such as an app icon, splash screen, and animations of screens and elements
 
-### App Walk-though
+### App Walk-through
 <img src="http://g.recordit.co/1ErFQUGSxL.gif" width=200><br>
 
 ## Required
